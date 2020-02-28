@@ -47,8 +47,9 @@
           </li>
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
+        <form action="{% url 'login' %}" class="form-inline my-2 my-lg-0">
+        {% csrf_token %}
+          <button  class="btn btn-outline-primary my-2 my-sm-0" type="submit" value={{login}}>Login</button>
         </form>
       </div>
     </nav>
@@ -63,13 +64,14 @@
           <h1 class="mb-5">Keep track of your notes and tasks</h1>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
+          <form action="{% url 'register' %}">
+            {% csrf_token %}
             <div class="form-row">
               <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+                <input type="email" class="form-control form-control-lg" placeholder="Enter Email (optional)">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Get Started</button>
+                <button type="submit" value="{{register}}" class="btn btn-block btn-lg btn-primary">Get Started</button>
               </div>
             </div>
           </form>
